@@ -39,3 +39,7 @@ I could have loaded the new Excel file resulting from step 5, into R, but I deci
 11. Since the paragraph direction in Excel cells depend on the language of the text in the cell, the sheet had mixed paragraph directions. This could cause columns in the csv file to move before or after another adjacent column, so I **set the paragraph direction for all columns to be the same**.
 
 The file was finally saved in csv format, re-encoded in Notepad, and loaded into R. But the tidy Excel sheet was also shared with the data providers which they liked and lead to improving the data entry process.
+
+## License 
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />Pre-processing Excel Sheets for Later Data Analysis in R by Ahmad Al-Kashef is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
