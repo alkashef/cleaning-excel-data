@@ -1,4 +1,4 @@
-# Pre-processing Excel Sheets#
+# Pre-processing Excel Sheets
 
 While cleaning data for a data analysis project in R, I came across a very big (> 100 MB) Excel file (xlsx) containing most of the data. There was no codebook, so I naturally wanted to open the file in Excel first, and have a look at it before loading it into R. It took a very long time to open and when it did, Excel often produced a "not enough resources" error whenever I tried to modify the file.
 
