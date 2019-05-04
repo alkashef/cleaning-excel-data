@@ -1,6 +1,6 @@
-# Pre-processing Excel Sheets for Later Data Analysis in R #
+# Pre-processing Excel Sheets#
 
-While cleaning data for a data analysis project in R, I came across a very big (> 100 MB) Excel file (xlsx) containing most of the data. There was no codebook, so I naturally wanted to open the file in Excel first, and have a look at it before loading it into R. It took a very long time to open and when it did, Excel often produced a "not enough resources" error at any modification to the file.
+While cleaning data for a data analysis project in R, I came across a very big (> 100 MB) Excel file (xlsx) containing most of the data. There was no codebook, so I naturally wanted to open the file in Excel first, and have a look at it before loading it into R. It took a very long time to open and when it did, Excel often produced a "not enough resources" error whenever I tried to modify the file.
 
 Trying to open the file in R using `read.table()`, `read.xlsx()`, `read.xlsx2()`, or using most of the solutions mentioned [here](http://www.r-bloggers.com/read-excel-files-from-r/), took even longer than opening it in Excel and wasn't always successful. 
 
@@ -10,6 +10,8 @@ Although my goal was to read the file into R to clean it and analyse it, I learn
 
 ## How I pre-processed the Excel file ##
 
+### Reducing the file size
+
 My first objective was to reduce the size of the file so I can manipulate it. I was able to achieve this by doing the following:
 
 1. The file had 6 sheets. **I split each sheet into a separate file**. I made copies of the file, iteratively opened each copy in Excel and deleted all but a single sheet. Trying to copy or move a sheet into another file while it is open in Excel consumed more memory so it was not possible in this case. 
@@ -18,13 +20,15 @@ My first objective was to reduce the size of the file so I can manipulate it. I 
 
 3. I **cleared formats** of all the cells in the file.
 
-4. I then **cleared all the data validation** rules. These were there to ensure that data entered in certain columns were selected for look-up tables. These look-up tables were available as sheets in the same file. 
+4. I then **cleared all the data validation** rules. These were there to ensure that data entered in certain columns were selected from look-up tables. These look-up tables were available as sheets in the same file. 
 
 5. **All formulas were substituted by values**. Columns were copied and pasted in-place as values.
 
 6. **All conditional formatting formulas were deleted**.
 
-The above steps reduced the file size to 3.5 MB. It is important to mention that the first 4 steps paved the way to steps 5 and 6. Copying and pasting columns (step 5) was impossible without reducing the file size considerably first. 
+The above steps reduced the file size significantly. It is important to mention that the first 4 steps paved the way to steps 5 and 6. Copying and pasting columns (step 5) was impossible without reducing the file size considerably first. 
+
+### Data cleansing
 
 I could have loaded the new Excel file resulting from step 5, into R, but I decided to do more cleaning in Excel first:
    
@@ -42,4 +46,4 @@ The file was finally saved in csv format, re-encoded in Notepad, and loaded into
 
 ## License 
 
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />Pre-processing Excel Sheets for Later Data Analysis in R by Ahmad Al-Kashef is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This guide is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
